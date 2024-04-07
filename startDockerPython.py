@@ -13,15 +13,15 @@ sshcon.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 sshcon.connect(ip, username=myuser, key_filename=mySSHK)
 
 
-stdin, stdout, stderr = ssh.exec_command("sudo apt-get update")
+stdin, stdout, stderr = sshcon.exec_command("sudo apt-get update")
 time.sleep(20)
-stdin, stdout, stderr = ssh.exec_command("sudo apt-get install docker.io -y")
+stdin, stdout, stderr = sshcon.exec_command("sudo apt-get install docker.io -y")
 time.sleep(20)
-stdin, stdout, stderr = ssh.exec_command("sudo systemctl start docker")
-stdin, stdout, stderr = ssh.exec_command("sudo systemctl enable docker")
+stdin, stdout, stderr = sshcon.exec_command("sudo systemctl start docker")
+stdin, stdout, stderr = sshcon.exec_command("sudo systemctl enable docker")
 
-stdin, stdout, stderr = ssh.exec_command("git clone https://github.com/kkowshalyaa/PythonLab.git")
-stdin, stdout, stderr = ssh.exec_command("sudo docker build -t python-lab PythonLab/")
+stdin, stdout, stderr = sshcon.exec_command("git clone https://github.com/kkowshalyaa/PythonLab.git")
+stdin, stdout, stderr = sshcon.exec_command("sudo docker build -t python-lab PythonLab/")
 
 
 
