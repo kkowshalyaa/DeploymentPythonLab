@@ -20,7 +20,7 @@ time.sleep(20)
 stdin, stdout, stderr = ssh.exec_command("sudo systemctl start docker")
 stdin, stdout, stderr = ssh.exec_command("sudo systemctl enable docker")
 
-stdin, stdout, stderr = ssh.exec_command("git clone https://github.com/pooja-guru25/PythonLab.git")
+stdin, stdout, stderr = ssh.exec_command("git clone https://github.com/kkowshalyaa/PythonLab.git")
 stdin, stdout, stderr = ssh.exec_command("sudo docker build -t python-lab PythonLab/")
 
 
