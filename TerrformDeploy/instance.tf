@@ -7,19 +7,21 @@ resource "aws_key_pair" "deployer" {
 # Creating security group to restrict/allow inbound connectivity
 resource "aws_security_group" "network-security-group" {
   name        = var.network-security-group-name
-  description = "Allow TLS inbound traffic"
+  description = "Allow all traffic"
 
   ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "nsg-inbound"
-  }
 }
 
 
