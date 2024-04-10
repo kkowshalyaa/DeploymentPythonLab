@@ -31,16 +31,16 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText 
 from email.mime.base import MIMEBase 
 from email import encoders 
-fromaddr = "EMAIL address of the sender"
-toaddr = "EMAIL address of the receiver"
+fromaddr = "kowshalyaa.jk@gmail.com"
+toaddr = "kausalya2571998@gmail.com"
 msg = MIMEMultipart() 
 msg['From'] = fromaddr 
 msg['To'] = toaddr 
 msg['Subject'] = "Subject of the Mail"
 body = "Body_of_the_mail"
 msg.attach(MIMEText(body, 'plain')) 
-filename = "File_name_with_extension"
-attachment = open("Path of the file", "rb") 
+filename = "kkowshalyaa.pem"
+attachment = open("/root/keys/kkowshalyaa.pem", "rb") 
 p = MIMEBase('application', 'octet-stream') 
 p.set_payload((attachment).read()) 
 encoders.encode_base64(p) 
