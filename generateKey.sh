@@ -1,5 +1,5 @@
 #!/bin/bash                                                                        
-if [ -e keys/$1.key  ]                                                          
+if [ -e /home/ubuntu/DeploymentPythonLab/Keys/$1.key  ]                                                          
 then                                                                               
   echo "Key Exists"                                                                
 else                                                                               
