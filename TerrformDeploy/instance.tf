@@ -1,7 +1,7 @@
 # Creating key-pair on AWS using SSH-public key
 resource "aws_key_pair" "deployer" {
   key_name   = var.key-name
-  public_key = file("/root/keys/kkowshalyaa.key.pub")
+  public_key = file("/root/keys/{1}.key.pub")
 }
 
 # Creating security group to restrict/allow inbound connectivity
