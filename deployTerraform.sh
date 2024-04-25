@@ -1,4 +1,5 @@
-cp -r TerrformDeploy ${1}_Terraform 
+mkdir ${1}_Terraform 
+cp -r TerrformDeploy/* ${1}_Terraform 
 cd ${1}_Terraform                                                                  
 terraform init                                                                     
 sleep 10                                                                           
