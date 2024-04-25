@@ -1,7 +1,7 @@
 #!/bin/bash                                                                        
-if [ -e keys/$NAME.key  ]                                                          
+if [ -e keys/$1.key  ]                                                          
 then                                                                               
   echo "Key Exists"                                                                
 else                                                                               
-  ssh-keygen -t rsa -N "" -f keys/$NAME.key                                        
+  ssh-keygen -t rsa -N "" -f keys/$1.key                                        
 fi 
