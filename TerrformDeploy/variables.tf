@@ -13,3 +13,7 @@ variable "ubuntu-ami" {
 variable "ubuntu-instance-type" {
 
 }
+
+variable "name" {
+
+}
