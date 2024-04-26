@@ -1,7 +1,7 @@
 # Creating key-pair on AWS using SSH-public key
 resource "aws_key_pair" "python_deployer" {
   key_name   = var.key-name
-  public_key = file("/home/ubuntu/DeploymentPythonLab/Keys/${var.name}.key.pub")
+  public_key = file("/home/ubuntu/DeploymentPythonLab/Keys/${var.name}.pem.pub")
 }
 
 # Creating security group to restrict/allow inbound connectivity
