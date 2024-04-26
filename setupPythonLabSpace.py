@@ -10,7 +10,7 @@ from email.mime.base import MIMEBase
 from email import encoders 
 
 #Get EC2 instance IP from Terraform output 
-output = subprocess.getoutput('./home/ubuntu/DeploymentPythonLab/getPublic.sh ' + sys.argv[1])
+output = subprocess.getoutput('./getPublic.sh ' + sys.argv[1])
 ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', output)[0]
 
 #Establish SSH Connection to EC2 Instance
