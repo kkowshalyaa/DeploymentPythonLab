@@ -45,7 +45,7 @@ body = "Dear Student, \n Your EC2 instance IP is " + ip + ". The Key to access E
 msg.attach(MIMEText(body, 'plain')) 
 #cmd = "openssl rsa -in /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem -text > /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem"
 #output = subprocess.getoutput(cmd)
-filename =  sys.argv[1] ".pem"
+filename =  sys.argv[1] + ".pem"
 attachment = open("/home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem", "rb") 
 p = MIMEBase('application', 'octet-stream') 
 p.set_payload((attachment).read()) 
