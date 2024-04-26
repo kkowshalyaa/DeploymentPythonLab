@@ -41,7 +41,7 @@ msg = MIMEMultipart()
 msg['From'] = fromaddr 
 msg['To'] = toaddr 
 msg['Subject'] = "Python Lab Space Credentials."
-body = "Dear Student, \n Your EC2 instance IP is " + ip + ". The Key to access EC2 instance is attached in this mail, please follow the instructions attached in this mail to use the instance, you can also check out the instructions at https://www.canva.com/design/DAGCAGofyGA/2NnkKSDRaeiCvS9vXr8-9A/view"
+body = "Dear Student, \n Your EC2 instance IP is " + ip + ". The Key to access EC2 instance is attached in this mail, please follow the instructions attached in this mail to use the instance, you can also check out the instructions at https://www.canva.com/design/DAGCAGofyGA/ph00mb2IaQ83aiczKEsjiA/view"
 msg.attach(MIMEText(body, 'plain')) 
 #cmd = "openssl rsa -in /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem -text > /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem"
 #output = subprocess.getoutput(cmd)
