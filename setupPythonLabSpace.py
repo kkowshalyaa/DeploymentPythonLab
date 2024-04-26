@@ -53,7 +53,7 @@ encoders.encode_base64(p)
 p.add_header('Content-Disposition', "attachment; filename= %s" % filename) 
 msg.attach(p) 
 filename = "Instructions.pdf"
-attachment = open("/home/ubuntu/DeploymentPythonLab/PythonLab.pdf", "rb")
+attachment = open("/home/ubuntu/DeploymentPythonLab/PythonLabSpace.pdf", "rb")
 p = MIMEBase('application', 'octet-stream') 
 p.set_payload((attachment).read()) 
 encoders.encode_base64(p) 
