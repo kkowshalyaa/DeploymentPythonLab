@@ -1,11 +1,11 @@
 # Creating key-pair on AWS using SSH-public key
-resource "aws_key_pair" "python_deployer" {
+resource "aws_key_pair" "deployer" {
   key_name   = var.key-name
   public_key = file("/home/ubuntu/DeploymentPythonLab/Keys/${var.name}.pem.pub")
 }
 
 # Creating security group to restrict/allow inbound connectivity
-resource "aws_security_group" "python_network-security-group" {
+resource "aws_security_group" "network-security-group" {
   name        = var.network-security-group-name
   description = "Allow all traffic"
 
@@ -29,8 +29,8 @@ resource "aws_security_group" "python_network-security-group" {
 resource "aws_instance" "ubuntu-vm-instance" {
   ami             = var.ubuntu-ami
   instance_type   = var.ubuntu-instance-type
-  key_name        = aws_key_pair.python_deployer.key_name
-  vpc_security_group_ids = [aws_security_group.python_network-security-group.id]
+  key_name        = aws_key_pair.deployer.key_name
+  vpc_security_group_ids = [aws_security_group.network-security-group.id]
   tags = {
     Name = "python_ubuntu-vm"
   }
