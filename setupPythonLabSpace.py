@@ -10,12 +10,12 @@ from email.mime.base import MIMEBase
 from email import encoders 
 
 #Get EC2 instance IP from Terraform output 
-output = subprocess.getoutput('./home/ubuntu/DeploymentPythonLab/getPublic.sh ' + sys.argv[0])
+output = subprocess.getoutput('./home/ubuntu/DeploymentPythonLab/getPublic.sh ' + sys.argv[1])
 ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', output)[0]
 
 #Establish SSH Connection to EC2 Instance
 myuser   = 'ubuntu'
-mySSHK   = '/home/ubuntu/DeploymentPythonLab/Keys/' + sys.argv[0] + '.key'
+mySSHK   = '/home/ubuntu/DeploymentPythonLab/Keys/' + sys.argv[1] + '.pem'
 sshcon   = paramiko.SSHClient() 
 sshcon.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 sshcon.connect(ip, username=myuser, key_filename=mySSHK)
@@ -43,10 +43,10 @@ msg['To'] = toaddr
 msg['Subject'] = "Python Lab Space Credentials."
 body = "Dear Student, \n Your EC2 instance IP is " + ip + ". The Key to access EC2 instance is attached in this mail, please follow the instructions attached in this mail to use the instance, you can also check out the instructions at https://www.canva.com/design/DAGCAGofyGA/2NnkKSDRaeiCvS9vXr8-9A/view"
 msg.attach(MIMEText(body, 'plain')) 
-cmd = "openssl rsa -in /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[0] + ".key -text > /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[0] + ".pem"
-output = subprocess.getoutput(cmd)
-filename =  sys.argv[0] ".pem"
-attachment = open("/home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[0] + ".pem", "rb") 
+#cmd = "openssl rsa -in /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem -text > /home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem"
+#output = subprocess.getoutput(cmd)
+filename =  sys.argv[1] ".pem"
+attachment = open("/home/ubuntu/DeploymentPythonLab/Keys/" + sys.argv[1] + ".pem", "rb") 
 p = MIMEBase('application', 'octet-stream') 
 p.set_payload((attachment).read()) 
 encoders.encode_base64(p) 
